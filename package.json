@@ -1,0 +1,30 @@
+{
+  "name": "cec-policy-agreement-form",
+  "version": "1.0.0",
+  "description": "Student Policy Agreement Form for Cebu Eastern College, Inc. - College of Information Technology",
+  "main": "app.js",
+  "scripts": {
+    "build": "tsc app.ts --target ES2020 --module ES2020",
+    "watch": "tsc app.ts --target ES2020 --module ES2020 --watch",
+    "dev": "live-server --port=8000"
+  },
+  "keywords": [
+    "policy",
+    "agreement",
+    "form",
+    "student",
+    "cebu-eastern-college",
+    "responsive",
+    "bootstrap"
+  ],
+  "author": "Cebu Eastern College, Inc.",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "live-server": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/policy-agreement.git"
+  }
+}
