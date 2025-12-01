@@ -34,6 +34,7 @@
                         <!-- Right: Navigation -->
                         <nav class="header-nav">
                             <a href="index.html" class="nav-link">Agreement</a>
+                            <a href="violations.html" class="nav-link">Violations</a>
                             <a href="faqs.html" class="nav-link">FAQs</a>
                         </nav>
                     </div>
@@ -62,7 +63,7 @@
                             <ol class="policy-list">
                                 <li>Students must maintain proper behavior at all times within the premises of the Computer Laboratory and IT classrooms.</li>
                                 <li>Enter and exit quietly and orderly. Disruptive behavior, shouting, running, or horseplay is strictly prohibited.</li>
-                                <li>Follow the instructions of the Instructor, Lab Custodian, or any authorized personnel without delay.</li>
+                                <li>Follow the instructions of the Instructor, Lab Custodian, or any authorized personnel promptly.</li>
                                 <li>Respect fellow students, faculty, laboratory equipment, and school property at all times.</li>
                             </ol>
                         </div>
@@ -97,7 +98,7 @@
                                 <h5 class="subsection-title">C. Cleanliness & Safety</h5>
                                 <ol class="policy-list">
                                     <li><strong>No food or drinks</strong> inside the computer laboratory.</li>
-                                    <li>Keep the workspace clean; return chairs, fix keyboards, and remove trash before leaving.</li>
+                                    <li>Maintain cleanliness in the workspace by returning chairs to their proper places, arranging keyboards appropriately, and disposing of all trash before leaving.</li>
                                     <li>Do not touch internal PC components, power outlets, or wiring.</li>
                                 </ol>
                             </div>
@@ -278,6 +279,24 @@
                                 <input type="email" class="form-control" id="email" name="email" placeholder="your.email@cecuin.edu.ph" required>
                                 <div class="invalid-feedback">Valid email is required.</div>
                             </div>
+                            <div class="col-md-6">
+                                <label for="course" class="form-label required">Course</label>
+                                <select class="form-select" id="course" name="course" required>
+                                    <option value="">Select your course</option>
+                                    <option value="BS in Information Technology">BS in Information Technology</option>
+                                    <option value="BS in Hospitality Management">BS in Hospitality Management</option>
+                                    <option value="BS in Tourism Management">BS in Tourism Management</option>
+                                    <option value="BS in Elementary Education">BS in Elementary Education</option>
+                                    <option value="BS in Secondary Education">BS in Secondary Education</option>
+                                    <option value="BS in Criminology">BS in Criminology</option>
+                                </select>
+                                <div class="invalid-feedback">Course is required.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="contactInfo" class="form-label required">Contact Information</label>
+                                <input type="tel" class="form-control" id="contactInfo" name="contactInfo" placeholder="e.g., 09171234567 or +63-2-1234-5678" required>
+                                <div class="invalid-feedback">Contact information is required.</div>
+                            </div>
                         </div>
                     </section>
 
@@ -318,7 +337,9 @@
                     <!-- Center: Info -->
                     <div class="col-md-4 text-center mb-4 mb-md-0">
                         <p class="footer-text">
-                            <small>All submissions are recorded and stored securely for compliance purposes.</small>
+                            <small>All submissions are recorded and stored securely for compliance purposes.
+                                <br> Made by: Jade Louis S. Cabucos 
+                            </small>
                         </p>
                     </div>
 
@@ -338,47 +359,78 @@
 
         <!-- Submission Modal -->
         <div class="modal fade" id="submissionModal" tabindex="-1" aria-labelledby="submissionModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content modal-landscape">
                     <div class="modal-header bg-success text-white">
                         <h5 class="modal-title" id="submissionModalLabel">
-                            <i class="fas fa-check-circle me-2"></i>Submission Successful
+                            <i class="fas fa-check-circle me-2"></i>Submission Successful - Agreement Confirmation
                         </h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <p class="mb-3"><strong>Your policy agreement has been successfully submitted and saved to the Google Sheet.</strong></p>
-                        
-                        <div class="submission-details">
-                            <div class="detail-row mb-2">
-                                <span class="detail-label"><strong>Reference ID:</strong></span>
-                                <span class="detail-value" id="referenceId"></span>
+                    <div class="modal-body modal-body-landscape">
+                        <div class="modal-two-column">
+                            <!-- LEFT COLUMN: Section Numbers and Titles -->
+                            <div class="modal-column-left">
+                                <div class="section-titles-list">
+                                    <div id="submissionSectionsList">
+                                        <!-- Populated by JavaScript -->
+                                    </div>
+                                </div>
                             </div>
-                            <div class="detail-row mb-2">
-                                <span class="detail-label"><strong>Student Name:</strong></span>
-                                <span class="detail-value" id="submissionStudentName"></span>
-                            </div>
-                            <div class="detail-row mb-2">
-                                <span class="detail-label"><strong>Student ID:</strong></span>
-                                <span class="detail-value" id="submissionStudentId"></span>
-                            </div>
-                            <div class="detail-row mb-2">
-                                <span class="detail-label"><strong>Section:</strong></span>
-                                <span class="detail-value" id="submissionSection"></span>
-                            </div>
-                            <div class="detail-row mb-2">
-                                <span class="detail-label"><strong>Email:</strong></span>
-                                <span class="detail-value" id="submissionEmail"></span>
-                            </div>
-                            <div class="detail-row mb-2">
-                                <span class="detail-label"><strong>Submission Date/Time:</strong></span>
-                                <span class="detail-value" id="submissionTimestamp"></span>
+                            
+                            <!-- RIGHT COLUMN: Agreement Information -->
+                            <div class="modal-column-right">
+                                <div class="agreement-info">
+                                    <h6 class="agreement-title mb-3">Agreement Information</h6>
+                                    
+                                    <div class="info-grid">
+                                        <div class="info-item">
+                                            <span class="info-label">Reference ID:</span>
+                                            <span class="info-value" id="referenceId"></span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Student Name:</span>
+                                            <span class="info-value" id="submissionStudentName"></span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Student ID:</span>
+                                            <span class="info-value" id="submissionStudentId"></span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Year Level:</span>
+                                            <span class="info-value" id="submissionYear"></span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Section:</span>
+                                            <span class="info-value" id="submissionSection"></span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Course:</span>
+                                            <span class="info-value" id="submissionCourse"></span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Email:</span>
+                                            <span class="info-value" id="submissionEmail"></span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Contact:</span>
+                                            <span class="info-value" id="submissionContact"></span>
+                                        </div>
+                                        <div class="info-item full-width">
+                                            <span class="info-label">Submission Date/Time:</span>
+                                            <span class="info-value" id="submissionTimestamp"></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" id="printBtn">
+                            <i class="fas fa-print me-2"></i>Print
+                        </button>
                         <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="closeSuccessBtn">
-                            <i class="fas fa-home me-2"></i>Close
+                            <i class="fas fa-check me-2"></i>Close
                         </button>
                     </div>
                 </div>
